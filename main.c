@@ -156,19 +156,11 @@ int main(int argc, char**argv)
 
       pk_to_xi(npts_ext, k_ext, Pk_ext, r_out, xi_out);
 
-      FILE*fp_check = fopen("check_pade_ext_pk.dat","w");
-
-      fprintf(fp, "# r [Mpc]    xi(r) \n");
-      for (n = 0; n < 200; n++)
-	  fprintf(fp,"%f %f\n", r_out[n], xi_out[n]);
-
-      for (n = 0; n < npts_ext; n++)
-	  fprintf(fp_check,"%f %f\n", k_ext[n], Pk_ext[n]);
 
       free(k_ext); free(Pk_ext);
       free(r_out); free(xi_out);
 
-      fclose(fp_check);
+
     }
   else
     {
