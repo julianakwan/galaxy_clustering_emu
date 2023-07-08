@@ -5,6 +5,11 @@
 #include "params.h"
 #include <math.h>
 
+
+int emu(double *newparams, double outputredshift, double *output_pk);
+int pade(int nk, double *k, double *Pk, int npts, double *k_out, double *Pk_out); 
+int pk_to_xi(int nk, double *k, double *Pk, double *r_out, double *xi_out);
+
 int main(int argc, char**argv)
 {
   float min_design[5] = {12.9, 13.5, 0.5, 0.5, 0.5};
