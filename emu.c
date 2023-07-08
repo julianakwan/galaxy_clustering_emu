@@ -15,6 +15,7 @@ int make_sigma_w(int nmodels, float designparams[][nparams], double *newparams, 
 int read_design(FILE *fp, int nmodels, float design[][nparams]);
 int invert_matrix(int size, gsl_matrix *A, gsl_matrix *A_inv);
 
+
 int emu(double *newparams, double outputredshift, double *output_pk)
 {
   int n; 
@@ -195,7 +196,7 @@ int emu(double *newparams, double outputredshift, double *output_pk)
       else
 	k_unlogged = pow(10.,logk[offset]); // these modes are extrapolated with the linear bias (for xi only)
       bias = pow(10.,bias);
-      output_pk[n] = bias*k_unlogged;//*gsl_spline_eval(spline_pk, output_scalefactor, acc_pk);
+      output_pk[n] = bias*k_unlogged*gsl_spline_eval(spline_pk, output_scalefactor, acc_pk);
            /* fprintf(stderr, "%f %f %f %f %f %f\n", pkpred[6*n+0], pkpred[6*n+1], pkpred[6*n+2], pkpred[6*n+3], pkpred[6*n+4], pkpred[6*n+5]); */
       gsl_interp_accel_reset(acc_bias);
       gsl_interp_accel_reset(acc_pk);
