@@ -9,7 +9,7 @@ download from here: http://www.gnu.org/software/gsl/. I have version
 functions will do.
 
 I have included a sample Makefile to make the executable - you will
-need to edit the variable GSL_LIB and GSL_INCL to point to your own
+need to edit the variables GSL_LIB and GSL_INCL to point to your own
 directories.
 
 
