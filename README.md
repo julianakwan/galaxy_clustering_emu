@@ -8,8 +8,10 @@ download from here: http://www.gnu.org/software/gsl/. I have version
 1.15, but any version that includes the gsl_matrix and gsl_spline
 functions will do.
 
-To make the executable, type: 
-gcc -o emu.out -I/users/astro/jkwan/libs/gsl/include -L/users/astro/jkwan/libs/gsl/lib -lgsl -lgslcblas -lm -g emu.c main.c
+I have included a sample Makefile to make the executable - you will
+need to edit the variable GSL_LIB and GSL_INCL to point to your own
+directories.
+
 
 The entire emulation process is contained in emu.c and main.c is just
 a driver that opens the parameter file, checks that the HOD parameters
@@ -43,15 +45,15 @@ reminding you of your input parameters.
 
 The parameter ranges are:
 
-12.85 < Mcut < 13.85  [in units of Msun]
+12.9 <= Mcut <= 14.0  [in units of Msun]
 
-13.3 < M1 < 14.3      [in units of Msun]
+13.5 <= M1 <= 15.0      [in units of Msun]
 
-0.5 < sigma < 1.2
+0.5 <= sigma <= 1.2
 
-0.5 < kappa < 1.5
+0.5 <= kappa <= 1.5
 
-0.5 < alpha < 1.5
+0.5 <= alpha <= 1.5
 
 0 <= z <= 1
 
