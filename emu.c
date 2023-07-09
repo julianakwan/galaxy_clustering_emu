@@ -60,14 +60,13 @@ int emu(double *newparams, double outputredshift, double *output_pk)
 	  numz_want = n;
 	}
     }
-  /* fprintf(stderr, "%d %lf %lf\n", numz_want, scalefactor[numz_want], scalefactor[numz_want+1]); */
+
 
   double wpred[numPC]; //predicted weights at new P(k) relation
   int numz = 0; // redshift 
   double *pkpred = calloc(nk*6,sizeof(double));
   
-  for (numz = numz_want; numz < numz_want+2; numz++)
-  /* for (numz = 0; numz < 6; numz++) */
+  for (numz = numz_want; numz < numz_want+2; numz++)  // only do the redshifts needed
     {
       if (numz == 0)
 	{
@@ -186,8 +185,7 @@ int emu(double *newparams, double outputredshift, double *output_pk)
     {
       gsl_spline_init (spline_bias, &(scalefactor[numz_want]), &(pkpred[6*n+numz_want]), 2);
       gsl_spline_init (spline_pk, &(scalefactor[numz_want]), &(pk_m[n][numz_want]), 2);
-      /* gsl_spline_init (spline_bias, scalefactor, &(pkpred[6*n]), 6); */
-      /* gsl_spline_init (spline_pk, scalefactor, &(pk_m[n][0]), 6); */
+
 
       double bias = gsl_spline_eval(spline_bias, output_scalefactor, acc_bias);
       double k_unlogged;
@@ -197,7 +195,7 @@ int emu(double *newparams, double outputredshift, double *output_pk)
 	k_unlogged = pow(10.,logk[offset]); // these modes are extrapolated with the linear bias (for xi only)
       bias = pow(10.,bias);
       output_pk[n] = bias*k_unlogged*gsl_spline_eval(spline_pk, output_scalefactor, acc_pk);
-           /* fprintf(stderr, "%f %f %f %f %f %f\n", pkpred[6*n+0], pkpred[6*n+1], pkpred[6*n+2], pkpred[6*n+3], pkpred[6*n+4], pkpred[6*n+5]); */
+
       gsl_interp_accel_reset(acc_bias);
       gsl_interp_accel_reset(acc_pk);
     }
@@ -243,7 +241,6 @@ int make_sigma_w(int nmodels, float designparams[][nparams], double *newparams, 
 	V11dummy /= lambda_w[numz*numPC+PCnow]; 
 	if (i==j)
 	  V11dummy += 1./lambdaP[numz];
-	  //	V11dummy += invphi[i+PCnow*nmodels][j+PCnow*nmodels]/lambdaP; //check this part..
 	gsl_matrix_set (V11, i, j, V11dummy);
       }
     }

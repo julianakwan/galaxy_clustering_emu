@@ -116,12 +116,4 @@ double lambda_w[60] =
 double lambdaP[6] = {3592804.541319, 9268792.334669, 9990100.179496, 9906178.839203, 10266886.618848, 8765425.086342}; 
 
 
-/* extern float min_design[5];  */
-/* extern float max_design[5];  */
-/* extern int nM, numPC, nmodels, nparams;  */
-
-/* int nM = 100;   // Number of mass bins */
-/* int numPC = 3;    // Number of pricipal components */
-/* int nmodels = 37; // How many models to cover parameter space */
-/* int nparams = 5; // Number of cosmological parameters */
 
