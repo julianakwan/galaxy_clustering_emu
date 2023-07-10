@@ -6,7 +6,7 @@ paper </a> for further details. If you do use our emulator, please
 cite our paper. Any questions can be sent to julianakwan123@gmail.com
 
 You will need a version of GSL installed, which you can
-download from <a http://www.gnu.org/software/gsl/> here </a>. 
+download from <a href=http://www.gnu.org/software/gsl/ > here </a>. 
 Any version that includes the gsl_matrix and gsl_spline functions will do.
 
 I have included a sample Makefile - you will
