@@ -1,16 +1,18 @@
-Thank you for using our HOD P(k) emulator. Please see our paper on
-arXiv.org/abs/1311.6444 for further details. If you do use our
-emulator, please cite our paper. Please send questions to
-julianakwan123@gmail.com
+# A model for the non-linear galaxy clustering 2-point statistics 
+
+Thank you for using our HOD P(k) emulator. Please see our <a
+href=https://ui.adsabs.harvard.edu/abs/2015ApJ...810...35K/abstract>
+paper </a> for further details. If you do use our emulator, please
+cite our paper. Any questions can be sent to julianakwan123@gmail.com
 
 To begin, you will need a version of GSL installed, which you can
-download from here: http://www.gnu.org/software/gsl/. I have version
+download from <a http://www.gnu.org/software/gsl/> </a>. I have version
 1.15, but any version that includes the gsl_matrix and gsl_spline
 functions will do.
 
-I have included a sample Makefile to make the executable - you will
+I have included a sample Makefile - you will
 need to edit the variables GSL_LIB and GSL_INCL to point to your own
-directories.
+directories first - just type 'make' in a terminal.  
 
 
 The entire emulation process is contained in emu.c and main.c is just
@@ -31,31 +33,22 @@ of parameters in *cosmoparams is the same as in the params.ini file.
 To run the emulator, type: 
 emu.out params.ini output.txt
 
-params.ini contains the HOD parameters (using the Zheng et al. 2005
+params.ini should specify the HOD parameters (using the Zheng et al. 2005
 model), in the following order:
 
-log10(Mcut), log10(M1), sigma, kappa, alpha, z, a flag for outputting either Pk (1) or xi (2)
+- log10(Mcut) in the range [12.9 -- 14.0]
+- log10(M1) in the range [13.5 -- 15.0]
+- sigma in the range [0.5 -- 1.2]
+- kappa in the range [0.5 -- 1.5]
+- alpha in the range [0.5 -- 1.5]
+- z     in the range [0. -- 1.0]
+- output format [for P(k) use 1, for xi(r) use 2]
 
 
 Please write only one parameter per line. You can comment out a line
 by prefacing it with the '#' character. The resultant 2-pt function
 will be contained in output.txt. There will also be a short header
 reminding you of your input parameters. 
-
-
-The parameter ranges are:
-
-12.9 <= Mcut <= 14.0  [in units of Msun]
-
-13.5 <= M1 <= 15.0      [in units of Msun]
-
-0.5 <= sigma <= 1.2
-
-0.5 <= kappa <= 1.5
-
-0.5 <= alpha <= 1.5
-
-0 <= z <= 1
 
 If you get it wrong, the code will helpfully remind you of the
 parameter ranges again.
