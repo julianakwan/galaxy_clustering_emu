@@ -1,14 +1,13 @@
 # A model for the non-linear galaxy clustering 2-point statistics 
 
-Thank you for using our HOD P(k) emulator. Please see our <a
+Welcome to our HOD P(k) emulator! Please see our <a
 href=https://ui.adsabs.harvard.edu/abs/2015ApJ...810...35K/abstract>
 paper </a> for further details. If you do use our emulator, please
 cite our paper. Any questions can be sent to julianakwan123@gmail.com
 
-To begin, you will need a version of GSL installed, which you can
-download from <a http://www.gnu.org/software/gsl/> </a>. I have version
-1.15, but any version that includes the gsl_matrix and gsl_spline
-functions will do.
+You will need a version of GSL installed, which you can
+download from <a http://www.gnu.org/software/gsl/> here </a>. 
+Any version that includes the gsl_matrix and gsl_spline functions will do.
 
 I have included a sample Makefile - you will
 need to edit the variables GSL_LIB and GSL_INCL to point to your own
